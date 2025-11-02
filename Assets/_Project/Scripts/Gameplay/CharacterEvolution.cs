@@ -226,8 +226,8 @@ namespace PunchKing
             if (required <= 0)
                 return 0f;
 
-            double progress = (double)(experiencePoints / required);
-            return (float)progress;
+            BigDouble progressRatio = experiencePoints / required;
+            return (float)progressRatio.ToDouble();
         }
     }
 }
