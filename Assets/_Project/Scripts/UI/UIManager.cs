@@ -82,7 +82,7 @@ namespace PunchKing
             if (currentGold != cachedGold || goldText.text == "")
             {
                 if (goldText != null)
-                    goldText.SetText("Gold: {0}", NumberFormatter.FormatNumber(currentGold));
+                    goldText.SetText(string.Format("Gold: {0}", NumberFormatter.FormatNumber(currentGold)));
                 cachedGold = currentGold;
             }
 
@@ -90,20 +90,20 @@ namespace PunchKing
             if (dpsText != null)
             {
                 BigDouble dps = CurrencyManager.Instance.GetTotalDPS();
-                dpsText.SetText("DPS: {0}/s", NumberFormatter.FormatNumber(dps));
+                dpsText.SetText(string.Format("DPS: {0}/s", NumberFormatter.FormatNumber(dps)));
             }
 
             // 클릭 데미지 표시
             if (clickDamageText != null)
             {
                 BigDouble clickDmg = CurrencyManager.Instance.GetTotalClickDamage();
-                clickDamageText.SetText("Click: {0}", NumberFormatter.FormatNumber(clickDmg));
+                clickDamageText.SetText(string.Format("Click: {0}", NumberFormatter.FormatNumber(clickDmg)));
             }
 
             // 레벨 표시
             if (levelText != null && CharacterEvolution.Instance != null)
             {
-                levelText.SetText("Lv.{0}", CharacterEvolution.Instance.characterLevel);
+                levelText.SetText(string.Format("Lv.{0}", CharacterEvolution.Instance.characterLevel));
             }
 
             // 프레스티지 UI
@@ -117,12 +117,12 @@ namespace PunchKing
 
             if (prestigePointsText != null)
             {
-                prestigePointsText.SetText("PP: {0}", NumberFormatter.FormatNumber(PrestigeManager.Instance.prestigePoints));
+                prestigePointsText.SetText(string.Format("PP: {0}", NumberFormatter.FormatNumber(PrestigeManager.Instance.prestigePoints)));
             }
 
             if (prestigeLevelText != null)
             {
-                prestigeLevelText.SetText("Prestige Lv.{0}", PrestigeManager.Instance.prestigeLevel);
+                prestigeLevelText.SetText(string.Format("Prestige Lv.{0}", PrestigeManager.Instance.prestigeLevel));
             }
 
             if (prestigeGainText != null)
@@ -130,7 +130,7 @@ namespace PunchKing
                 BigDouble gain = PrestigeManager.Instance.GetPrestigeGain();
                 if (gain > 0)
                 {
-                    prestigeGainText.SetText("Next: +{0} PP", NumberFormatter.FormatNumber(gain));
+                    prestigeGainText.SetText(string.Format("Next: +{0} PP", NumberFormatter.FormatNumber(gain)));
                     prestigeGainText.color = Color.green;
                 }
                 else
@@ -157,7 +157,7 @@ namespace PunchKing
             if (dmgText != null)
             {
                 // 텍스트 설정
-                dmgText.SetText("{0}", NumberFormatter.FormatNumber(damage));
+                dmgText.SetText(NumberFormatter.FormatNumber(damage));
                 dmgText.fontSize = isCrit ? 48 : 32;
                 dmgText.color = isCrit ? Color.yellow : Color.white;
 

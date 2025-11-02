@@ -70,14 +70,14 @@ namespace PunchKing
             // 레벨
             if (levelText != null)
             {
-                levelText.SetText("Lv.{0}/{1}", currentLevel, upgradeData.maxLevel);
+                levelText.SetText(string.Format("Lv.{0}/{1}", currentLevel, upgradeData.maxLevel));
             }
 
             // 비용
             if (costText != null)
             {
                 BigDouble cost = upgradeData.GetCostAtLevel(currentLevel);
-                costText.SetText("Cost: {0}", NumberFormatter.FormatNumber(cost));
+                costText.SetText(string.Format("Cost: {0}", NumberFormatter.FormatNumber(cost)));
             }
 
             // 설명
