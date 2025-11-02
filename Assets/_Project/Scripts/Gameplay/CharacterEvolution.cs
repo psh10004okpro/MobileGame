@@ -226,7 +226,8 @@ namespace PunchKing
             if (required <= 0)
                 return 0f;
 
-            return (float)(experiencePoints / required);
+            double progress = (double)(experiencePoints / required);
+            return (float)progress;
         }
     }
 }
